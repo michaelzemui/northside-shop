@@ -1,2 +1,8 @@
 node_modules/
 dist/
+
+# bakers.build
+/assets-ai/
+/.bakers/log.txt
+/.bakers/connection.config.js
+/.bakers-worktrees/
