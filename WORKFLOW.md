@@ -19,7 +19,9 @@ No work needs a running environment. Install dependencies with `npm ci` before a
 
 ## bb-phase-deliver
 
-Work lands through a squash-merged merge request into `main`.
+Work lands through a squash-merged pull request into `main` on GitHub. Push, open the pull
+request and merge through the Forge tools (`forge_push`, `forge_pr_upsert`, `forge_merge`); the
+merge gate is a human approval on the pull request.
 
 ## bb-phase-outtake
 
