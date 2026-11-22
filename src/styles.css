@@ -57,3 +57,18 @@ dl {
 dd {
   margin: 0;
 }
+
+footer {
+  padding: 1rem 2rem;
+  background: #2b2118;
+  color: #fbf6ee;
+  text-align: center;
+}
+
+footer p {
+  margin: 0.25rem 0;
+}
+
+footer a {
+  color: inherit;
+}

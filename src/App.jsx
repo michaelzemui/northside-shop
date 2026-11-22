@@ -6,6 +6,7 @@ const PAGES = { home: 'Home', contact: 'Contact' }
 
 export default function App({ shop, start = 'home' }) {
   const [page, setPage] = useState(start)
+  const year = new Date().getFullYear()
   return (
     <>
       <header>
@@ -24,6 +25,12 @@ export default function App({ shop, start = 'home' }) {
         </nav>
       </header>
       <main>{page === 'contact' ? <Contact shop={shop} /> : <Home shop={shop} />}</main>
+      <footer>
+        <p>{`© ${year} ${shop.name}`}</p>
+        <p>
+          <a href={`mailto:${shop.email}`}>{shop.email}</a>
+        </p>
+      </footer>
     </>
   )
 }
