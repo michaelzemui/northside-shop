@@ -23,6 +23,8 @@ export default {
   // machine runs the same skills: the bakers plugin supplies bb-workflow.
   marketplaces: [
     { url: "https://github.com/bakers-build/bakers-build.git", ref: "main", plugins: ["bakers"] },
+    // The superpowers recipe (bb-recipe-superpowers) needs the obra/superpowers skills.
+    { url: "https://github.com/obra/superpowers.git", ref: "main", plugins: ["superpowers"] },
   ],
   addons: [ { use: "@bakers-build/addon-herdr" }],
 };
