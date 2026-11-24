@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs'
 import { renderToString } from 'react-dom/server'
 import { expect, test, vi } from 'vitest'
 import App from './App.jsx'
@@ -60,4 +61,29 @@ test('the app shows the home call-to-action and still marks Home in the navigati
   const html = renderToString(<App shop={shop} />)
   expect(html).toContain('Opening hours &amp; contact')
   expect(html).toMatch(/aria-current="page"[^>]*>Home</)
+})
+
+test('the home styles are scoped to home markup and use the shop palette', () => {
+  const css = readFileSync(new URL('./styles.css', import.meta.url), 'utf8')
+  const original = [
+    ':root',
+    'body',
+    'header',
+    'nav button',
+    "nav button[aria-current='page']",
+    'main',
+    'address',
+    'a',
+    'dl',
+    'dd',
+  ]
+  const selectors = [...css.matchAll(/([^{}]+)\{/g)]
+    .map((m) => m[1].trim())
+    .filter((s) => !s.startsWith('@'))
+    .flatMap((s) => s.split(',').map((part) => part.trim()))
+  expect(selectors.filter((s) => !original.includes(s) && !s.startsWith('.home'))).toEqual([])
+  const rule = (selector) =>
+    css.match(new RegExp(`(^|\\n)\\s*${selector.replace('.', '\\.')}\\s*\\{([^}]*)\\}`))?.[2] ?? ''
+  expect(rule('.home-hero')).toMatch(/background:\s*#2b2118/)
+  expect(rule('.home-cta')).toMatch(/background:\s*#9a4b12/)
 })
