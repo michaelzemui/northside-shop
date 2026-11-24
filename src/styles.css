@@ -57,3 +57,58 @@ dl {
 dd {
   margin: 0;
 }
+
+.home {
+  overflow-wrap: anywhere;
+}
+
+.home-hero {
+  padding: 2.5rem 2rem;
+  border-radius: 1rem;
+  background: #2b2118;
+  color: #fbf6ee;
+}
+
+.home-hero h1 {
+  margin: 0;
+  font-size: clamp(2rem, 8vw, 3rem);
+  line-height: 1.1;
+}
+
+.home-lead {
+  margin: 0.75rem 0 0;
+  font-size: 1.25rem;
+}
+
+.home-visit {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  border-left: 0.4rem solid #9a4b12;
+  border-radius: 1rem;
+  box-shadow: 0 1px 4px rgb(43 33 24 / 15%);
+}
+
+.home-visit h2 {
+  margin-top: 0;
+}
+
+.home-cta {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 999px;
+  background: #9a4b12;
+  color: #fbf6ee;
+  font: inherit;
+  cursor: pointer;
+}
+
+.home-cta:focus-visible {
+  outline: 2px solid #2b2118;
+  outline-offset: 2px;
+}
+
+@media (max-width: 30rem) {
+  .home-hero {
+    padding: 1.5rem 1.25rem;
+  }
+}

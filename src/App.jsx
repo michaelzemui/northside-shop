@@ -23,7 +23,7 @@ export default function App({ shop, start = 'home' }) {
           ))}
         </nav>
       </header>
-      <main>{page === 'contact' ? <Contact shop={shop} /> : <Home shop={shop} />}</main>
+      <main>{page === 'contact' ? <Contact shop={shop} /> : <Home shop={shop} onNavigate={setPage} />}</main>
     </>
   )
 }
